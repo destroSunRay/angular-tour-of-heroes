@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Heroes } from '../mock-heroes';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -13,10 +13,13 @@ import { HeroService } from '../hero.service';
   templateUrl: './heroes.component.html',
   styleUrl: './heroes.component.css',
 })
-export class HeroesComponent {
+export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService,
+    private messagesService: MessageService
+  ) {}
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heros) => (this.heroes = heros));
@@ -28,7 +31,7 @@ export class HeroesComponent {
 
   selectedHero?: Hero;
   onSelect(hero: Hero): void {
-    // console.log('selected hero', this.selectedHero);
     this.selectedHero = hero;
+    this.messagesService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 }

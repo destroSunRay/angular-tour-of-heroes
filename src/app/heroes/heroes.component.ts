@@ -23,4 +23,21 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (name) {
+      this.heroService
+        .addHero({ name } as Hero)
+        .subscribe(() => this.getHeroes());
+    }
+  }
+
+  delete(hero: Hero): void {
+    this.heroService
+      .deleteHero(hero)
+      .subscribe(
+        () => (this.heroes = this.heroes.filter((he) => hero.id !== he.id))
+      );
+  }
 }

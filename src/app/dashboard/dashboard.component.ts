@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { RouterLink } from '@angular/router';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, HeroSearchComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })

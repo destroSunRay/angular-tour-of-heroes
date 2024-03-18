@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Backend
 
-I used python and created apis that are used to fetch and update the data. Use the command `$ pip install -r requirements.txt` to install all dependencies to run the backend service. Use the command `python3 app.py` to start the backend service in a mac/ linux based system or the command `python app.py` for windows
+I used python and created apis that are used to fetch and update the data. Use the command `pip install -r requirements.txt` to install all dependencies to run the backend service. Use the command `python3 app.py` to start the backend service in a mac/ linux based system or the command `python app.py` for windows
 
 ## Code scaffolding
 
